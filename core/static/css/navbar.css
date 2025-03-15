@@ -1,0 +1,16 @@
+.navbar {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.navbar .nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500; 
+    font-size: 1.1rem; 
+    color: #0056b3 !important; 
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+    color: #003d80 !important; 
+}
