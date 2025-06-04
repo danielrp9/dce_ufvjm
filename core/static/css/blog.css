@@ -17,3 +17,14 @@ body {
 }
 
 
+.post-img {
+    display: block;
+    margin: 20px auto; /* Centraliza com espaço acima e abaixo */
+    max-width: 100%; /* Não ultrapassa o container */
+    max-height: 500px; /* Altura máxima adequada */
+    width: auto; /* Mantém proporção */
+    height: auto; /* Mantém proporção */
+    object-fit: contain; /* Garante que a imagem inteira seja visível */
+    border-radius: 8px; /* Opcional: bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Opcional: sombra leve */
+}

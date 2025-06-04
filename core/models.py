@@ -97,3 +97,13 @@ class Evento(models.Model):
 
     def __str__(self):
         return self.titulo
+# Adicione ao seu models.py
+
+class Atividade(models.Model):
+    titulo = models.CharField(max_length=200, blank=True, null=True)
+    imagem = models.ImageField(upload_to='atividades/')
+    data = models.DateField(auto_now_add=True)
+    ativo = models.BooleanField(default=True)
+    
+    def __str__(self):
+        return self.titulo if self.titulo else f"Atividade {self.id}"

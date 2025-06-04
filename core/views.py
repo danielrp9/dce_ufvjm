@@ -57,4 +57,17 @@ def financeiro_view(request):
 
     return render(request, 'financeiro.html', {'financeiro_list': financeiro_list})
 
-    
+# Na sua view (views.py)
+
+from .models import Atividade  # Importe o novo modelo
+
+def home(request):
+    configuracao = Configuracao.objects.first()
+    atualizacoes = Atualizacao.objects.all().order_by('-data_publicacao')[:5]
+    atividades = Atividade.objects.filter(ativo=True).order_by('-data')[:8]  # Limite para 8 imagens
+    context = {
+        'configuracao': configuracao,
+        'atualizacoes': atualizacoes,
+        'atividades': atividades,
+    }
+    return render(request, 'home.html', context)

@@ -1,16 +1,68 @@
-.navbar {
-    background-color: #ffffff !important;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+/* navbar.css - Estilos definitivos */
+.custom-navbar {
+    background-color: var(--branco) !important;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1) !important;
+    padding: 0.8rem 0 !important;
 }
 
-.navbar .nav-link {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500; 
-    font-size: 1.1rem; 
-    color: #0056b3 !important; 
-    transition: color 0.3s ease;
+.custom-navbar .navbar-brand img {
+    height: 60px !important;
+    transition: transform 0.3s ease !important;
 }
 
-.navbar .nav-link:hover {
-    color: #003d80 !important; 
+.custom-navbar .navbar-brand:hover img {
+    transform: scale(1.05) !important;
+}
+
+.custom-navbar .nav-link {
+    font-weight: 500 !important;
+    color: var(--cinza-escuro) !important;
+    margin: 0 0.5rem !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 4px !important;
+    transition: all 0.3s ease !important;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+    color: var(--azul-claro) !important;
+    background-color: rgba(0, 86, 179, 0.1) !important;
+}
+
+/* Mobile - Estilos FORÇADOS */
+@media (max-width: 991.98px) {
+    .custom-navbar .navbar-collapse {
+        background-color: white !important;
+        text-align: center !important;
+        padding: 0 !important;
+        margin-top: 10px !important;
+    }
+
+    .custom-navbar .navbar-nav {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .custom-navbar .nav-item {
+        width: 100% !important;
+        text-align: center !important;
+        padding: 10px 0 !important;
+        border-bottom: 1px solid #eee !important;
+        margin: 0 !important;
+    }
+
+    .custom-navbar .nav-item:last-child {
+        border-bottom: none !important;
+    }
+
+    .custom-navbar .nav-link {
+        display: inline-block !important;
+        width: auto !important;
+        padding: 8px 15px !important;
+        margin: 0 !important;
+    }
 }

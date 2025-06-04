@@ -1,0 +1,479 @@
+/* 🔥 Variáveis de Design */
+:root {
+    --color-primary: #2a2d3b; /* Azul escuro moderno */
+    --color-accent: #e63946; /* Vermelho institucional */
+    --color-light: #f8f9fa;
+    --color-dark: #1a1a1a;
+    --color-text: #333;
+    --color-text-light: #6c757d;
+    --font-main: 'Inter', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 🎨 Reset & Base */
+body {
+    font-family: var(--font-main);
+    color: var(--color-text);
+    line-height: 1.6;
+    background: #fff;
+    overflow-x: hidden;
+}
+
+/* 🚀 Navbar Estilo iOS Minimalista */
+.dce-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+}
+
+.dce-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.dce-brand img {
+    transition: var(--transition);
+}
+
+.dce-brand:hover img {
+    transform: rotate(-5deg);
+}
+
+.dce-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.dce-menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-dark);
+    margin: 5px 0;
+    transition: var(--transition);
+}
+
+.dce-nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.dce-nav-links a {
+    color: var(--color-text);
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.dce-nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transition: var(--transition);
+}
+
+.dce-nav-links a:hover::after,
+.dce-nav-links a.active::after {
+    width: 100%;
+}
+
+.dce-admin-btn {
+    background: var(--color-primary);
+    color: white !important;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.dce-admin-btn:hover {
+    background: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+/* 🌟 Hero Section (Fullscreen) */
+.dce-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(135deg, var(--color-primary), #3a506b);
+    color: white;
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.dce-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('{% static "img/patterns/dot-pattern.png" %}') center/cover;
+    opacity: 0.05;
+}
+
+.dce-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.dce-hero-logo {
+    height: 120px;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+    animation: float 6s ease-in-out infinite;
+}
+
+.dce-hero h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.dce-hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+}
+
+.dce-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: white;
+    font-weight: 500;
+    padding: 1rem 2rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.dce-hero-cta:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-3px);
+}
+
+/* 📰 Atualizações (Cards Neumorfismo) */
+.dce-updates {
+    padding: 6rem 0;
+    background: var(--color-light);
+}
+
+.dce-section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.dce-section-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.dce-divider {
+    width: 60px;
+    height: 3px;
+    background: var(--color-accent);
+    margin: 0 auto 1.5rem;
+}
+
+.dce-updates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dce-update-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.dce-update-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.dce-update-icon {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    margin-top: 0.25rem;
+}
+
+.dce-update-content h3 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+}
+
+.dce-update-date {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+}
+
+.dce-update-empty {
+    text-align: center;
+    grid-column: 1 / -1;
+    padding: 3rem;
+    color: var(--color-text-light);
+}
+
+.dce-update-empty i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+/* 🎭 Galeria Masonry (Efeito Zoom) */
+.dce-gallery {
+    padding: 6rem 0;
+}
+
+.dce-masonry-grid {
+    columns: 3;
+    gap: 1.5rem;
+}
+
+.dce-gallery-item {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.dce-gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: var(--transition);
+}
+
+.dce-gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.dce-gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: white;
+    padding: 1.5rem 1rem 1rem;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.dce-gallery-item:hover .dce-gallery-caption {
+    opacity: 1;
+}
+
+.dce-gallery-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.dce-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    font-weight: 500;
+    border-radius: 50px;
+    background: transparent;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.dce-btn-outline:hover {
+    background: var(--color-primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* 🏁 Footer Dark Mode */
+.dce-footer {
+    background: var(--color-primary);
+    color: white;
+    padding: 4rem 0 2rem;
+}
+
+.dce-footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.dce-footer-brand img {
+    margin-bottom: 1rem;
+}
+
+.dce-footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.dce-footer-links h3,
+.dce-footer-social h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.dce-footer-links h3::after,
+.dce-footer-social h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--color-accent);
+}
+
+.dce-footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: var(--transition);
+}
+
+.dce-footer-links a:hover {
+    color: white;
+    transform: translateX(5px);
+}
+
+.dce-social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.dce-social-icons a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: var(--transition);
+}
+
+.dce-social-icons a:hover {
+    background: var(--color-accent);
+    transform: translateY(-3px);
+}
+
+.dce-footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.dce-dev-credit a {
+    color: white;
+    font-weight: 500;
+}
+
+.dce-dev-credit a:hover {
+    color: var(--color-accent);
+}
+
+/* 🌀 Animações */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* 📱 Responsividade */
+@media (max-width: 992px) {
+    .dce-masonry-grid {
+        columns: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .dce-menu-toggle {
+        display: block;
+    }
+    
+    .dce-nav-links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        box-shadow: var(--shadow-md);
+        transform: translateY(-150%);
+        opacity: 0;
+        transition: var(--transition);
+    }
+    
+    .dce-nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+    .dce-hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .dce-masonry-grid {
+        columns: 1;
+    }
+    
+    .dce-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .dce-hero-subtitle {
+        font-size: 1.1rem;
+    }
+}
