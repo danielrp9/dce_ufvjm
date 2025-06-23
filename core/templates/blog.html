@@ -80,13 +80,17 @@
                     </div>
                 </div>
                 
-                <div class="header-search">
-                    <div class="search-input">
-                        <input type="text" placeholder="Digite sua busca...">
-                        <button type="submit">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
+               <div class="header-search">
+                    <div class="header-search">
+                    <form action="https://www.google.com/search" method="GET" target="_blank">
+                        <div class="search-input">
+                            <input type="text" name="q" placeholder="Digite sua busca...">
+                            <button type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
                 </div>
             </div>
         </div>
@@ -97,8 +101,8 @@
         <section class="main-banner">
             <img src="{% static 'img/banner/blog.jpg' %}" alt="Estudantes da UFVJM">
             <div class="banner-overlay">
-                <h1>Portal da Transparência - DCE</h1>
-                <p>Conheça as ações e projetos do DCE UFVJM</p>
+                <h1>Blog do DCE</h1>
+                <p>Acompanhe aqui todas as nossas publicações</p>
             </div>
         </section>
 

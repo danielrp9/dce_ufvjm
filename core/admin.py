@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Atividade
 from .models import (
     BlogPost, Edital, Evento, Post, Configuracao, Atualizacao, 
-    MembroChapa, Patrimonio, Financeiro
+    MembroChapa, Patrimonio, Financeiro,  BannerChapa,
 )
 
 admin.site.register(BlogPost)
@@ -38,3 +38,14 @@ class AtividadeAdmin(admin.ModelAdmin):
     list_display = ('titulo', 'data', 'ativo')
     list_filter = ('ativo', 'data')
     search_fields = ('titulo',)
+
+@admin.register(BannerChapa) # Esta linha estava causando o erro porque BannerChapa não estava importado
+class BannerChapaAdmin(admin.ModelAdmin):
+    list_display = ('titulo', 'ativo', 'data_atualizacao')
+    list_filter = ('ativo',)
+    search_fields = ('titulo', 'subtitulo')
+    def save_model(self, request, obj, form, change):
+        if obj.ativo:
+            # Desativa outros banners ativos para garantir que apenas um esteja ativo por vez
+            BannerChapa.objects.exclude(pk=obj.pk).update(ativo=False)
+        super().save_model(request, obj, form, change)

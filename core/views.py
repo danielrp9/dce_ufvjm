@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import BlogPost, Edital, Evento, Post, Configuracao, Atualizacao, MembroChapa, Patrimonio, Financeiro, Atividade # Certifique-se de importar Atividade
+from .models import BlogPost, Edital, Evento, Post, Configuracao, Atualizacao, MembroChapa, Patrimonio, Financeiro, Atividade,  BannerChapa
 
 def home(request):
     """
@@ -53,8 +53,8 @@ def inicio(request):
 
 def chapa_view(request):
     """
-    Renderiza a página da chapa, exibindo membros por campus
-    e as atividades recentes da chapa.
+    Renderiza a página da chapa, exibindo membros por campus,
+    as atividades recentes da chapa e o banner da chapa.
     """
     membros = MembroChapa.objects.all()
     membros_por_campus = {
@@ -63,14 +63,19 @@ def chapa_view(request):
         'Mucuri': membros.filter(campus='Mucuri'),
         'Unaí': membros.filter(campus='Unaí'),
     }
-    # Adicionando as atividades para a página da chapa
+    
     atividades = Atividade.objects.filter(ativo=True).order_by('-data')[:8]
+    
+    # Busca o banner ativo
+    banner_chapa = BannerChapa.objects.filter(ativo=True).first()
     
     context = {
         'membros_por_campus': membros_por_campus,
-        'atividades': atividades, # Atividades agora na página da chapa
+        'atividades': atividades,
+        'banner_chapa': banner_chapa, # Adiciona o banner ao contexto
     }
     return render(request, 'chapa.html', context)
+
 
 def patrimonio_view(request):
     """

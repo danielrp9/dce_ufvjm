@@ -107,3 +107,17 @@ class Atividade(models.Model):
     
     def __str__(self):
         return self.titulo if self.titulo else f"Atividade {self.id}"
+    
+class BannerChapa(models.Model):
+    imagem = models.ImageField(upload_to='banners_chapa/', help_text="Imagem principal do banner da chapa.")
+    titulo = models.CharField(max_length=255, default="Chapa", help_text="Título exibido no banner.")
+    subtitulo = models.CharField(max_length=255, default="Conheça os membros da chapa", help_text="Subtítulo exibido no banner.")
+    ativo = models.BooleanField(default=True, help_text="Apenas o banner ativo será exibido.")
+    data_atualizacao = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Banner da Chapa"
+        verbose_name_plural = "Banners da Chapa"
+
+    def __str__(self):
+        return f"Banner da Chapa - {self.titulo} ({'Ativo' if self.ativo else 'Inativo'})"

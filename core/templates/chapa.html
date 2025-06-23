@@ -80,26 +80,39 @@
                 </div>
                 
                 <div class="header-search">
-                    <div class="search-input">
-                        <input type="text" placeholder="Digite sua busca...">
-                        <button type="submit">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
+                    <div class="header-search">
+                    <form action="https://www.google.com/search" method="GET" target="_blank">
+                        <div class="search-input">
+                            <input type="text" name="q" placeholder="Digite sua busca...">
+                            <button type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
                 </div>
             </div>
         </div>
     </header>
 
 
-       <main class="container"> 
-        <section class="main-banner">
-            <img src="{% static 'img/banner/banner-chapa.png' %}" alt="Estudantes da UFVJM">
+      <main class="container"> 
+    <section class="main-banner">
+        {% if banner_chapa %}
+            <img src="{{ banner_chapa.imagem.url }}" alt="Banner da Chapa - {{ banner_chapa.titulo }}">
             <div class="banner-overlay">
-                <h1>Portal da Transparência - DCE</h1>
-                <p>Conheça as ações e projetos do DCE UFVJM</p>
+                <h1>{{ banner_chapa.titulo }}</h1>
+                <p>{{ banner_chapa.subtitulo }}</p>
             </div>
-        </section>
+        {% else %}
+            {# Fallback: Conteúdo padrão se nenhum banner estiver ativo ou cadastrado #}
+            <img src="{% static 'img/banner/banner_temporario.jpg' %}" alt="Estudantes da UFVJM">
+            <div class="banner-overlay">
+                <h1>Chapa</h1>
+                <p>Conheça os membros da chapa</p>
+            </div>
+        {% endif %}
+    </section>
 
         <!-- Accordion da Chapa -->
         <div class="br-accordion" id="chapaAccordion">
