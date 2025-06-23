@@ -1,0 +1,24 @@
+/* Estilos específicos da página de Patrimônio */
+
+/* Estilos para o Formulário de Pesquisa na página de Patrimônio */
+/* Estes estilos sobrescrevem ou complementam os estilos gerais de formulários se houver */
+.search-form {
+    /* Removendo estilos que estavam na página de financeiro e não estão aqui */
+    /* Se a intenção é que o search-form na página de patrimônio seja mais simples,
+       apenas as regras que você manteve no seu código atual entram aqui. */
+    margin-bottom: 2rem; /* Mantido conforme o seu último código */
+}
+
+.search-form input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--blue-warm-20);
+    font-size: 1rem; /* Adicionado no seu último código para input do search-form */
+}
+
+/* O banner principal (.main-banner, .banner-overlay) na página de patrimônio
+   retorna aos estilos definidos em css/sections/_hero.css,
+   pois não há sobrescritas neste arquivo _patrimonio.css para eles. */
+
+/* A tabela (.br-table) usa os estilos globais de components/_tables.css. */

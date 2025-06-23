@@ -1,0 +1,16 @@
+/* Variáveis de cores do GOV.BR */
+:root {
+    --blue-warm-vivid-70: #1351B4;
+    --blue-warm-20: #E1E6F2;
+    --blue-warm-10: #F0F2F8;
+    --blue-5: #F5F8FB;
+    --pure-0: #FFFFFF;
+    --pure-100: #000000;
+    --neutral-90: #222222;
+    --neutral-80: #333333;
+    --neutral-70: #555555;
+    --neutral-40: #999999;
+    --feedback-success-regular: #168821;
+    --feedback-warning-regular: #FFCD07;
+    --feedback-danger-regular: #E70000;
+}

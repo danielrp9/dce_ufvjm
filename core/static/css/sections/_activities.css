@@ -1,0 +1,95 @@
+/* activities.css */
+
+/* Atividades */
+/* Removedo .activities-container e .activities-row */
+/* O .activities-grid agora é o container principal da grade */
+.activities-grid {
+    display: grid;
+    /* 4 colunas com tamanho fixo (400px), centralizadas */
+    grid-template-columns: repeat(4, 400px); 
+    gap: 1.5rem; /* Espaçamento entre os cards */
+    justify-content: center; /* Centraliza a grade horizontalmente */
+    margin-top: 1.5rem; /* Espaço abaixo do título */
+    width: 100%; /* Garante que o grid use a largura disponível do seu container pai */
+    /* Removido max-width: fit-content; aqui para evitar conflitos */
+    margin-left: auto; /* Centraliza a grid */
+    margin-right: auto; /* Centraliza a grid */
+}
+
+.activity-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex; /* Para flexibilizar a imagem e o overlay */
+    flex-direction: column;
+    width: 250px; /* Largura fixa do card */
+    height: 290px; /* Altura fixa do card */
+}
+
+.activity-card img {
+    width: 100%;
+    height: 100%;
+    /* MUDANÇA AQUI: Usa 'fill' para preencher todo o container, podendo distorcer a imagem */
+    object-fit: fill; 
+    transition: transform 0.3s ease-in-out;
+}
+
+.activity-card:hover img {
+    transform: scale(1.05);
+}
+
+
+/* Estilo do botão "Ver Mais" */
+.load-more-button-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.br-button {
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.br-button.primary {
+    background-color: var(--blue-warm-vivid-70);
+    color: white;
+}
+
+.br-button.primary:hover {
+    background-color: #0c3e8e;
+    transform: translateY(-2px);
+}
+
+/* --- Responsividade --- */
+/* Ajuste dos breakpoints para as novas larguras dos cards (400px) */
+@media (max-width: 1700px) { /* Exemplo: Para 4 colunas (4*400 + gaps) = ~1660px, então quebra antes */
+    .activities-grid {
+        grid-template-columns: repeat(3, 400px);
+    }
+}
+
+@media (max-width: 1250px) { /* Exemplo: Para 3 colunas (3*400 + gaps) = ~1230px, então quebra antes */
+    .activities-grid {
+        grid-template-columns: repeat(2, 400px);
+    }
+}
+
+@media (max-width: 850px) { /* Exemplo: Para 2 colunas (2*400 + gaps) = ~815px, então quebra antes */
+    .activities-grid {
+        grid-template-columns: 1fr; /* Uma coluna, ocupa toda a largura disponível */
+        width: 100%;
+    }
+    .activity-card {
+        width: 90%; /* Ajusta a largura do card para mobile */
+        max-width: 400px; /* Garante que não fique maior que 400px */
+        margin: 0 auto; /* Centraliza o card */
+    }
+}

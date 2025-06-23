@@ -1,0 +1,42 @@
+/* Componente de Tabela */
+.br-table {
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--blue-warm-20);
+    overflow: hidden; /* Garante que o overflow-x funcione em telas menores */
+}
+
+.br-table thead {
+    background-color: var(--blue-warm-vivid-70);
+    color: white;
+}
+
+.br-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.br-table td {
+    padding: 1rem;
+    border-top: 1px solid var(--blue-warm-20);
+}
+
+.br-table tbody tr:hover {
+    background-color: var(--blue-warm-10);
+}
+
+/* Adição para remover a borda da última linha de qualquer tabela .br-table */
+.br-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Responsividade geral da tabela, se ela for aplicável a todas as tabelas */
+@media (max-width: 768px) {
+    .br-table {
+        display: block; /* Permite que a tabela role horizontalmente */
+        overflow-x: auto;
+    }
+}

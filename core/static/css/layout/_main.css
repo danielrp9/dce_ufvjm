@@ -1,0 +1,5 @@
+body main.container { /* Tornando mais específico */
+    padding: 20px 0;
+}
+
+

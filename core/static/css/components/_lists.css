@@ -1,0 +1,20 @@
+/* Listas */
+.br-list {
+    list-style: none;
+}
+
+.br-item {
+    padding: 1rem;
+    border-bottom: 1px solid var(--blue-warm-20);
+    display: flex;
+    align-items: center;
+}
+
+.br-item:last-child {
+    border-bottom: none;
+}
+
+.br-item i {
+    margin-right: 1rem;
+    color: var(--blue-warm-vivid-70);
+}

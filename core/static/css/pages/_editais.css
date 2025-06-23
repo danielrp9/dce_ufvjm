@@ -1,0 +1,24 @@
+/* Estilos específicos da página de Editais */
+
+/* Sobrescrita do botão primário para a página de editais */
+/* Se na página de editais o botão primário tiver um display diferente ou uma borda específica,
+   estas regras irão sobrescrever as do arquivo de componentes. */
+.br-button.primary {
+    display: inline-block; /* O seu código original para editais tinha inline-block */
+    border: 1px solid var(--blue-warm-vivid-70);
+}
+
+.br-button.primary:hover {
+    background-color: var(--neutral-90);
+    border-color: var(--neutral-90); /* Mantenha a borda mudando de cor se desejar */
+}
+
+/* Se houver qualquer outro estilo exclusivo da página de editais (que não seja um componente),
+   adicione-o aqui. Por exemplo: */
+/*
+.section-editais-destaque {
+    background-color: var(--blue-warm-10);
+    padding: 2rem;
+    border-radius: 8px;
+}
+*/

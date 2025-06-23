@@ -1,0 +1,310 @@
+/* header.css */
+/* Cabeçalho */
+.br-header {
+    background-color: var(--blue-warm-vivid-70);
+    color: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 1200px; /* Adicionei para garantir que o conteúdo fique centralizado */
+    margin: 0 auto; /* Adicionei para centralizar o container */
+    padding: 0 15px; /* Adicionei para ter um padding nas laterais */
+}
+
+.header-top {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    /* Adicionado flex-grow para ocupar espaço e empurrar logo/sign para a esquerda */
+    flex-grow: 1;
+}
+
+.header-logo .logo-container {
+    background-color: white;
+    padding: 5px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo .logo-container img {
+    height: 40px;
+}
+
+.divider-vertical {
+    width: 1px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 0 10px;
+}
+
+.header-sign {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.header-sign span:first-child {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.header-sign span:last-child {
+    font-size: 0.9rem;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.btn-circle:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-circle.small {
+    width: 30px;
+    height: 30px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    border-radius: 4px;
+    z-index: 1000;
+    display: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 10px 15px;
+    color: var(--neutral-80);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-item:hover {
+    background-color: var(--blue-warm-20);
+    text-decoration: none;
+}
+
+.dropdown-item i {
+    margin-right: 8px;
+    width: 20px;
+    text-align: center;
+    color: var(--blue-warm-vivid-70);
+}
+
+.dropdown-header {
+    padding: 10px 15px;
+    font-weight: bold;
+    border-bottom: 1px solid var(--blue-warm-20);
+    color: var(--blue-warm-vivid-70);
+}
+
+/* Botão de Login */
+.login-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Header bottom */
+.header-bottom {
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-menu {
+    display: flex;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-left: 15px;
+    color: white;
+}
+
+.header-subtitle {
+    font-size: 0.9rem;
+    margin-left: 15px;
+    opacity: 0.9;
+    color: white;
+}
+
+.header-search {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    position: relative;
+}
+
+.search-input input {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    min-width: 250px;
+    padding-right: 40px;
+}
+
+.search-input button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--neutral-70);
+    cursor: pointer;
+}
+
+/* --- Responsividade do Header --- */
+
+/* Para telas menores que 992px (tablets e celulares) */
+@media (max-width: 992px) {
+    /* Menu Links: Já está configurado para o mobile */
+    .menu-links {
+        display: none; /* Esconde o menu de navegação padrão */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: white;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .menu-links.show {
+        display: flex;
+    }
+    
+    .menu-links li {
+        margin: 0;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--blue-warm-20);
+    }
+    
+    .menu-links li:last-child {
+        border-bottom: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block; /* Mostra o botão do menu mobile */
+    }
+    
+    .menu-container {
+        padding: 10px 0;
+        position: relative;
+    }
+}
+
+/* Para telas menores que 768px (celulares) - Onde as principais mudanças ocorrerão */
+@media (max-width: 768px) {
+    .header-top {
+        flex-direction: column; /* Altera para empilhar itens verticalmente */
+        align-items: flex-start; /* Alinha os itens à esquerda */
+        padding-bottom: 0; /* Remove padding inferior para alinhar melhor */
+    }
+    
+    .header-logo {
+        width: 100%; /* Ocupa toda a largura disponível */
+        justify-content: flex-start; /* Alinha logo e nome à esquerda */
+        margin-bottom: 10px; /* Adiciona espaço abaixo da logo/nome */
+    }
+
+    .divider-vertical {
+        display: none; /* Oculta o divisor vertical */
+    }
+    
+    .header-sign {
+        margin-left: 10px; /* Espaço entre a logo e o nome do diretório */
+    }
+
+    .header-actions {
+        margin-top: 0; /* Remove a margem superior que era para alinhar no desktop */
+        width: 100%; /* Ocupa toda a largura */
+        justify-content: space-between; /* Espaça os botões de login e menu */
+        padding: 10px 0; /* Adiciona um padding para a linha dos botões */
+        border-top: 1px solid rgba(255, 255, 255, 0.2); /* Adiciona borda superior */
+    }
+    
+    .header-bottom {
+        display: none; /* Oculta completamente a parte inferior do header (inclui search e title) */
+    }
+
+    /* Caso você queira ocultar elementos da header-bottom individualmente, se header-bottom não for oculto */
+    .header-title,
+    .header-search {
+        display: none; /* Oculta "Portal Transparência" e barra de pesquisa */
+    }
+}
+
+/* Para telas menores que 576px (celulares muito pequenos) */
+@media (max-width: 576px) {
+    .header-logo {
+        flex-direction: row; /* Mantém a logo e o nome na mesma linha */
+        align-items: center;
+    }
+    
+    .header-sign {
+        margin-top: 0; /* Remove margem superior se houver empilhamento anterior */
+    }
+}

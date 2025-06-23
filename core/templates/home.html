@@ -1,142 +1,234 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Início - DCE</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/logos/LOGO.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Portal da Transparência - DCE UFVJM</title>
     
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-         <!-- Google Font -->
-         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-        <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-        <link rel="stylesheet" href="{% static 'css/hero.css' %}">
-        <link rel="stylesheet" href="{% static 'css/atividades.css' %}">
-        <link rel="stylesheet" href="{% static 'css/footer.css' %}">
-
+    <link rel="stylesheet" href="https://cdngovbr-ds.estaleiro.serpro.gov.br/design-system/fonts/rawline/css/rawline.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap">
     
-        <!-- Bootstrap Icons -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    </head>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
 <body>
+<header class="br-header">
+    <div class="container">
+        <div class="header-top">
+            <div class="header-logo">
+                <div class="logo-container">
+                    <img src="{% static 'img/logos/LOGO.png' %}" alt="Logo do DCE">
+                </div>
+                <div class="divider-vertical"></div>
+                <div class="header-sign">
+                    <span class="text-bold">Diretório Central dos Estudantes</span>
+                    <span>Universidade Federal dos Vales do Jequitinhonha e Mucuri</span>
+                </div>
+            </div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="{% static 'img/logos/LOGO.png' %}" alt="Logo do DCE" style="height: 50px;">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="/">Início</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/chapa/">Chapa</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/blog/">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/financeiro/">Financeiro</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/patrimonio/">Patrimônio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/editais/">Editais e Anexos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/eventos/">Eventos</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/admin/login/">
-                            <i class="bi bi-lock"></i> <!-- Cadeado do Bootstrap Icons -->
+            <div class="header-actions">
+                <a href="/admin/login/" class="login-btn">
+                    <i class="fas fa-sign-in-alt"></i> <span class="d-none d-md-inline"></span>
+                </a>
+
+                <div class="dropdown">
+                    <button class="btn-circle small" type="button" aria-label="Acesso Rápido">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-header">Acesso Rápido</div>
+                        <a href="/chapa/" class="dropdown-item">
+                            <i class="fas fa-users"></i> Nossa Chapa
                         </a>
-                    </li>
-                </ul>
+                        <a href="/blog/" class="dropdown-item">
+                            <i class="fas fa-newspaper"></i> Blog
+                        </a>
+                        <a href="/editais/" class="dropdown-item">
+                            <i class="fas fa-file-alt"></i> Editais e Anexos
+                        </a>
+                        <a href="/eventos/" class="dropdown-item">
+                            <i class="fas fa-calendar-alt"></i> Eventos
+                        </a>
+                        <a href="/financeiro/" class="dropdown-item">
+                            <i class="fas fa-dollar-sign"></i> Financeiro
+                        </a>
+                        <a href="/patrimonio/" class="dropdown-item">
+                            <i class="fas fa-building"></i> Patrimônio
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="divider-vertical"></div>
             </div>
         </div>
-    </nav>
-    
 
-<section class="hero">
-    <div class="hero-icon">
-        {% if configuracao.logo %}
-            <img src="{{ configuracao.logo.url }}" alt="Logo do DCE">
-        {% else %}
-            <img src="{% static 'img/logos/LOGO.png' %}" alt="Imagem Representativa">
-        {% endif %}
+        <div class="header-bottom">
+            <div class="header-menu">
+                <button class="btn-circle small mobile-menu-btn" type="button" aria-label="Menu" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div>
+                    <div class="header-title">Portal da Transparência</div>
+                    <div class="header-subtitle">Acompanhe as atividades do DCE</div>
+                </div>
+            </div>
+
+            <div class="header-search">
+                <div class="search-input">
+                    <input type="text" placeholder="Digite sua busca...">
+                    <button type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
-    <h1>Bem-vindo ao Portal Transparência do DCE</h1>
-    <p>Diretório Central dos Estudantes da UFVJM</p>
-</section>
+</header>
 
-<!-- Seção de Atualizações -->
-<section class="container my-5">
-    <h2 class="text-center fw-bold">Atualizações</h2>
-    <div class="bg-light p-4 rounded shadow-sm">
-        <ul class="list-unstyled">
-            {% for atualizacao in atualizacoes %}
-            <li class="d-flex align-items-center py-2 border-bottom">
-                <i class="bi bi-calendar-event me-2"></i>
-                <a href="{{ atualizacao.link }}" class="text-decoration-none fw-semibold text-primary">
-                    {{ atualizacao.titulo }}
+
+    <main class="container"> 
+        <section class="main-banner">
+            <img src="{% static 'img/banner/luta.jpg' %}" alt="Estudantes da UFVJM">
+            <div class="banner-overlay">
+                <h1>Portal da Transparência - DCE</h1>
+                <p>Conheça as ações e projetos do DCE UFVJM</p>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="text-center">Atualizações</h2>
+            <div class="br-card">
+                <div class="card-content">
+                    <ul class="br-list">
+                        {% for atualizacao in atualizacoes %}
+                        <li class="br-item">
+                            <i class="fas fa-calendar-day"></i>
+                            <a href="{{ atualizacao.link }}">{{ atualizacao.titulo }}</a>
+                        </li>
+                        {% empty %}
+                        <li class="br-item">Nenhuma atualização disponível no momento.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </section> <br>
+
+        <hr class="my-5"> 
+
+       <br> <section class="mb-5">
+            <h2 class="text-center">O que é o DCE?</h2>
+            <div class="br-card">
+                <div class="card-content">
+                    <p>O <strong>Diretório Central dos Estudantes (DCE)</strong> da UFVJM é a entidade máxima de representação dos estudantes da universidade. Atuamos na defesa dos direitos e interesses dos discentes, buscando melhores condições de ensino, pesquisa e extensão.</p>
+                    <p>Nossa missão é promover a integração da comunidade acadêmica, incentivar o debate sobre temas relevantes, e organizar atividades culturais, sociais e políticas que enriqueçam a vida universitária. Somos a voz dos estudantes, trabalhando para que suas demandas sejam ouvidas e atendidas pela administração da UFVJM.</p>
+                    <p>Conheça mais sobre nossa história, nossas chapas e as causas que defendemos em nosso portal!</p>
+                </div>
+            </div>
+        </section><br>
+
+        <hr class="my-5">
+
+        <section class="mb-5">
+    <br> <h2 class="text-center">Atalhos Rápidos UFVJM</h2>
+    <div class="br-card">
+        <div class="card-content">
+            <div class="icon-links-grid">
+                <a href="https://ecampus.ufvjm.edu.br/" target="_blank" title="e-Campus UFVJM">
+                    <i class="fas fa-graduation-cap"></i>
                 </a>
-            </li>
-            {% empty %}
-            <li class="text-center py-3">Nenhuma atualização disponível no momento.</li>
-            {% endfor %}
-        </ul>
-        <!-- <div class="text-center mt-3">
-            <a href="/atualizacoes/" class="btn btn-primary">Ver Mais Atualizações</a>
+                <a href="https://webmail.ufvjm.edu.br/" target="_blank" title="Webmail UFVJM">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.ufvjm.edu.br/bibliotecas/" target="_blank" title="Bibliotecas UFVJM">
+                    <i class="fas fa-book"></i>
+                </a>
+                <a href="https://www.ufvjm.edu.br/" target="_blank" title="Site Oficial da UFVJM">
+                    <i class="fas fa-building"></i>
+                </a>
+                <a href="https://www.ufvjm.edu.br/prograd/calendario-academico/" target="_blank" title="Calendário Acadêmico">
+                    <i class="fas fa-calendar-alt"></i>
+                </a>
+                <a href="https://www.ufvjm.edu.br/assuntos-estudantis/" target="_blank" title="Pró-Reitoria de Assuntos Comunitários e Estudantis (PRCE)">
+                    <i class="fas fa-hands-helping"></i>
+                </a>
+            </div>
         </div>
-        -->
     </div>
 </section>
+    </main>
 
-
-<!-- Nossas Atividades Section -->
-<section id="nossas-atividades" class="container my-5">
-    <h2 class="section-title">Nossas Atividades</h2>
-    <div class="activities">
-        {% for atividade in atividades %}
-            <img src="{{ atividade.imagem.url }}" alt="{{ atividade.titulo|default:'Atividade do DCE' }}" 
-                 class="{% if forloop.counter > 4 %}hidden-mobile{% endif %}">
-        {% empty %}
-            <p>Nenhuma atividade cadastrada no momento.</p>
-        {% endfor %}
-    </div>
-    {% if atividades.count > 4 %}
-    <div class="text-center mt-4">
-        <button id="verMaisBtn" class="btn btn-primary">Ver Mais</button>
-    </div>
-    {% endif %}
-</section>
-
-
-<!-- Footer -->
-<footer id="contato">
-
-        <p>&copy; 2025 DCE. Todos os direitos reservados.</p>
-        <p>Desenvolvido por: Daniel Rodrigues</p>
-        <div class="social-icons mt-2">
-            <a href="https://www.instagram.com/daniel_rodrigues9" target="_blank">
-                <img src="{% static 'img/icones/instagram.png'%}" alt="Instagram" width="30">
-            </a>
-            <a href="https://www.linkedin.com/in/daniel-rodrigues-pereira-29b1b7243/" target="_blank">
-                <img src="{% static 'img/icones/linkedin.png'%}" alt="LinkedIn" width="30">
-            </a>
-            <a href="https://github.com/danielrp9" target="_blank">
-                <img src="{% static 'img/icones/github.png'%}" alt="GitHub" width="30">
-            </a>
+    <footer class="br-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sobre o DCE</h3>
+                    <p>O Diretório Central dos Estudantes representa os estudantes da UFVJM, defendendo seus direitos e promovendo atividades acadêmicas e culturais.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="/chapa/">Nossa Chapa</a></li>
+                        <li><a href="/financeiro/">Financeiro</a></li>
+                        <li><a href="/editais/">Editais</a></li>
+                        <li><a href="/eventos/">Eventos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> dce@ufvjm.edu.br</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Pavilhão 1, 3° Andar - Campus JK, Diamantina/MG</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 DCE UFVJM. Todos os direitos reservados.</p>
+                <p>Desenvolvido por: Daniel Rodrigues Pereira - Discente de Sistemas de Informação</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/daniel_rodrigues9" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/daniel-rodrigues-pereira-29b1b7243/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/danielrp9" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
         </div>
-</footer>
+    </footer>
 
+    <div class="chat-widget">
+        <div class="chat-icon" id="chatIcon">
+            <div class="chat-avatar">
+                <img src="{% static 'img/icones/avatar.png' %}" alt="Atendente Dani">
+            </div>
+        </div>
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <div class="header-profile">
+                    <img src="{% static 'img/icones/avatar.png' %}" alt="Atendente Dani">
+                    <div >
+                        <h3 class="superior">Dani</h3>
+                        <p>Atendente</p>
+                    </div>
+                </div>
+                <button class="close-chat" id="closeChat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-body" id="chatBody">
+                </div>
+            <div class="chat-input" id="chatInput">
+                <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    // Adicione este script no final do seu template ou em um arquivo JS separado
-document.getElementById('verMaisBtn').addEventListener('click', function() {
-    const hiddenImages = document.querySelectorAll('.activities .hidden-mobile');
-    hiddenImages.forEach(img => {
-        img.style.display = 'block';
-    });
-    this.style.display = 'none'; // Esconde o botão após clicar
-});
-</script>
+    <script src="{% static 'js/chat.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

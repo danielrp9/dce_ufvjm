@@ -1,0 +1,35 @@
+/* base.css */
+/* Estilos base */
+body {
+    font-family: 'Raleway', 'Rawline', sans-serif;
+    color: var(--neutral-80);
+    line-height: 1.6;
+    background-color: var(--blue-5);
+    /* Ajustado para compensar a altura exata do header fixo no desktop */
+    padding-top: 158.234px; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--blue-warm-vivid-70);
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--blue-warm-vivid-70);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--neutral-90);
+    text-decoration: underline;
+}
+
+/* Responsividade do padding-top do body para mobile */
+@media (max-width: 768px) {
+    body {
+        /* Altura exata do header no mobile, conforme sua última inspeção */
+        padding-top: 176.375px; 
+    }
+}

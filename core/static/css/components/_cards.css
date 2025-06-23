@@ -1,0 +1,54 @@
+/* Cards Componentes */
+.br-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--blue-warm-20);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.br-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--blue-warm-20);
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-footer {
+    padding: 1rem 1.5rem;
+    background-color: var(--blue-warm-10);
+    border-top: 1px solid var(--blue-warm-20);
+}
+
+/* Estilos de Card mais específicos, mas ainda genéricos para qualquer "card" com imagem/título/texto */
+.card-img-top {
+    width: 100%;
+    height: 200px; /* Considere usar um valor dinâmico ou aspect-ratio para mais flexibilidade */
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--blue-warm-vivid-70);
+}
+
+.card-text {
+    margin-bottom: 0.5rem;
+}
+
+.card-text strong {
+    color: var(--neutral-80);
+}

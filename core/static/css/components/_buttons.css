@@ -1,0 +1,94 @@
+/* Botões */
+.br-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid transparent; /* Padrão: borda transparente */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.br-button.primary {
+    background-color: var(--blue-warm-vivid-70);
+    color: white;
+    /* Remover border: 1px solid var(--blue-warm-vivid-70); daqui se o padrão é transparente */
+    /* Se a página de editais precisa de uma borda diferente, ela sobrescreve lá. */
+}
+
+.br-button.primary:hover {
+    background-color: var(--neutral-90);
+    text-decoration: none;
+    /* Remover border-color: var(--neutral-90); daqui se não for o padrão */
+}
+
+.br-button.secondary {
+    background-color: white;
+    color: var(--blue-warm-vivid-70);
+    border-color: var(--blue-warm-vivid-70);
+}
+
+.br-button.secondary:hover {
+    background-color: var(--blue-warm-20);
+    text-decoration: none;
+}
+
+/* Novo estilo para um .btn-primary genérico, se ele for diferente de .br-button */
+.btn-primary { /* Se esta classe for utilizada de forma diferente de .br-button */
+    background-color: var(--blue-warm-vivid-70);
+    border: none; /* Diferença em relação ao br-button normal */
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    color: white;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--neutral-90);
+    color: white;
+}
+
+
+.btn-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.btn-circle:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-circle.small {
+    width: 30px;
+    height: 30px;
+}
+
+/* Botão de Login */
+.login-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}

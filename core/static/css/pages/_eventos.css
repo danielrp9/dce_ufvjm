@@ -1,0 +1,15 @@
+/* Estilos específicos da página de Eventos */
+
+.eventos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Responsividade da Grade de Eventos */
+@media (max-width: 768px) {
+    .eventos-grid {
+        grid-template-columns: 1fr; /* Em telas menores, os cards de eventos ficam em uma única coluna */
+    }
+}

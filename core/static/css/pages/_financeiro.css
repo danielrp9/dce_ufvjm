@@ -1,0 +1,66 @@
+/* Estilos específicos da página do Financeiro */
+
+/* Sobrescrevendo estilos do Banner Principal APENAS para esta página */
+/* Se esta página tem um banner com altura e fontes diferentes do padrão */
+.main-banner {
+    height: 300px; /* Altura específica para a página do financeiro */
+}
+
+.banner-overlay h1 {
+    font-size: 2rem; /* Tamanho de fonte específico para a página do financeiro */
+}
+
+/* Responsividade do Banner para a página do Financeiro */
+@media (max-width: 992px) {
+    .main-banner {
+        height: 250px; /* Altura ajustada para telas menores no financeiro */
+    }
+    .banner-overlay h1 {
+        font-size: 1.75rem;
+    }
+    .banner-overlay p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-banner {
+        height: 200px; /* Mais ajustes para telas menores no financeiro */
+    }
+    .banner-overlay {
+        padding: 1rem;
+    }
+    .banner-overlay h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-banner {
+        height: 180px;
+    }
+    .banner-overlay h1 {
+        font-size: 1.25rem;
+    }
+}
+
+/* Formulário de Pesquisa */
+.search-form {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--blue-warm-20);
+    margin-bottom: 2rem;
+}
+
+.search-form input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--blue-warm-20);
+    border-radius: 4px;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Nota: .br-table já está em components/_tables.css.
+   Não precisamos duplicar aqui, a menos que haja sobrescritas MUITO específicas. */
