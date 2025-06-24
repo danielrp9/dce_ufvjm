@@ -7,10 +7,13 @@ class BlogPost(models.Model):
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
     data_publicacao = models.DateTimeField(auto_now_add=True)
     imagem = models.ImageField(upload_to='blog_images/', blank=True, null=True)
-    links = models.TextField(blank=True, null=True)  # Campo opcional para links
+    links = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.titulo
+
+    class Meta:
+        ordering = ['-data_publicacao']  # Mais recentes primeiro
     
     
 class Edital(models.Model):
@@ -22,14 +25,20 @@ class Edital(models.Model):
     def __str__(self):
         return self.titulo
 
+    class Meta:
+        ordering = ['-data_publicacao']  # Mais recentes primeiro
+
 class Post(models.Model):
     titulo = models.CharField(max_length=200)
     conteudo = models.TextField()
     data_criacao = models.DateTimeField(auto_now_add=True)
-    imagem = models.ImageField(upload_to='posts/', null=True, blank=True)  # Aqui ele salva as imagens em blog_imagens/posts/
-    
+    imagem = models.ImageField(upload_to='posts/', null=True, blank=True)
+
     def __str__(self):
         return self.titulo
+
+    class Meta:
+        ordering = ['-data_criacao']  # Mais recentes primeiro
 
 
 class Configuracao(models.Model):

@@ -72,7 +72,7 @@ def chapa_view(request):
     context = {
         'membros_por_campus': membros_por_campus,
         'atividades': atividades,
-        'banner_chapa': banner_chapa, # Adiciona o banner ao contexto
+        'banner_chapa': banner_chapa,
     }
     return render(request, 'chapa.html', context)
 
