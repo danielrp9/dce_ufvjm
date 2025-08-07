@@ -12,6 +12,87 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .updates-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .update-card {
+            display: flex;
+            align-items: stretch;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .update-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .update-card-image {
+            flex-shrink: 0;
+            width: 150px;
+            height: 100%;
+            overflow: hidden;
+            border-top-left-radius: 0.5rem;
+            border-bottom-left-radius: 0.5rem;
+        }
+
+        .update-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .update-card-content {
+            padding: 1rem;
+            flex-grow: 1;
+        }
+
+        .update-card-content h3 {
+            margin-top: 0;
+            font-size: 1.25rem;
+            color: var(--color-primary-darken-02);
+        }
+        .update-card-content p {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        /*
+         * Layout para dispositivos móveis (telas menores que 768px)
+         */
+        @media (max-width: 768px) {
+            .update-card {
+                /* Muda a direção do flexbox para coluna, empilhando os elementos */
+                flex-direction: column;
+                /* Remove o alinhamento stretch para evitar espaçamento indesejado */
+                align-items: flex-start;
+            }
+            .update-card-image {
+                /* Ocupa a largura total do card */
+                width: 100%;
+                /* Define uma altura fixa para a imagem em mobile, mantendo a proporção */
+                height: 180px; 
+                /* Arredonda as bordas superiores, e remove as inferiores */
+                border-radius: 0.5rem 0.5rem 0 0;
+            }
+            .update-card-image img {
+                height: 100%;
+            }
+            .update-card-content {
+                /* Ocupa a largura total do card */
+                width: 100%;
+                /* Arredonda as bordas inferiores, e remove as superiores */
+                border-radius: 0 0 0.5rem 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 <header class="br-header">
@@ -103,19 +184,26 @@
 
         <section class="mb-5">
             <h2 class="text-center">Atualizações</h2>
-            <div class="br-card">
-                <div class="card-content">
-                    <ul class="br-list">
-                        {% for atualizacao in atualizacoes %}
-                        <li class="br-item">
-                            <i class="fas fa-calendar-day"></i>
-                            <a href="{{ atualizacao.link }}">{{ atualizacao.titulo }}</a>
-                        </li>
-                        {% empty %}
-                        <li class="br-item">Nenhuma atualização disponível no momento.</li>
-                        {% endfor %}
-                    </ul>
+            <div class="updates-container">
+                {% for atualizacao in atualizacoes %}
+                <a href="{{ atualizacao.link }}" class="br-card update-card" target="_blank">
+                    {% if atualizacao.imagem %}
+                    <div class="update-card-image">
+                        <img src="{{ atualizacao.imagem.url }}" alt="{{ atualizacao.titulo }}">
+                    </div>
+                    {% endif %}
+                    <div class="update-card-content">
+                        <h3>{{ atualizacao.titulo }}</h3>
+                        <p>{{ atualizacao.descricao }}</p>
+                    </div>
+                </a>
+                {% empty %}
+                <div class="br-card">
+                    <div class="card-content">
+                        <p>Nenhuma atualização disponível no momento.</p>
+                    </div>
                 </div>
+                {% endfor %}
             </div>
         </section> <br>
 

@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User  #vincular postagens a usuários
+from django.contrib.auth.models import User 
 
 class BlogPost(models.Model):
     titulo = models.CharField(max_length=255)
@@ -13,9 +13,8 @@ class BlogPost(models.Model):
         return self.titulo
 
     class Meta:
-        ordering = ['-data_publicacao']  # Mais recentes primeiro
-    
-    
+        ordering = ['-data_publicacao']
+
 class Edital(models.Model):
     titulo = models.CharField(max_length=255)
     descricao = models.TextField()
@@ -26,7 +25,7 @@ class Edital(models.Model):
         return self.titulo
 
     class Meta:
-        ordering = ['-data_publicacao']  # Mais recentes primeiro
+        ordering = ['-data_publicacao']
 
 class Post(models.Model):
     titulo = models.CharField(max_length=200)
@@ -38,7 +37,7 @@ class Post(models.Model):
         return self.titulo
 
     class Meta:
-        ordering = ['-data_criacao']  # Mais recentes primeiro
+        ordering = ['-data_criacao']
 
 
 class Configuracao(models.Model):
@@ -50,6 +49,7 @@ class Atualizacao(models.Model):
     descricao = models.TextField()
     link = models.URLField(blank=True, null=True)
     data_publicacao = models.DateTimeField(auto_now_add=True)
+    imagem = models.ImageField(upload_to='atualizacoes/', blank=True, null=True)
 
     def __str__(self):
         return self.titulo
@@ -79,8 +79,6 @@ class Patrimonio(models.Model):
     def __str__(self):
         return self.descricao
 
-from django.db import models
-
 class Financeiro(models.Model):
     TIPO_CHOICES = [
         ('Receita', 'Receita'),
@@ -99,14 +97,13 @@ class Financeiro(models.Model):
 class Evento(models.Model):
     titulo = models.CharField(max_length=200)
     data = models.DateField()
-    horario = models.CharField(max_length=50) 
+    horario = models.CharField(max_length=50)
     parceiros = models.CharField(max_length=255, blank=True, null=True)
     imagem = models.ImageField(upload_to='eventos/', blank=True, null=True)
     link_compra = models.URLField(blank=True, null=True)
 
     def __str__(self):
         return self.titulo
-# Adicione ao seu models.py
 
 class Atividade(models.Model):
     titulo = models.CharField(max_length=200, blank=True, null=True)

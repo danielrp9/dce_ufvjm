@@ -11,5 +11,7 @@ urlpatterns = [
     path('chapa/', views.chapa_view, name='chapa'), 
     path('patrimonio/', views.patrimonio_view, name='patrimonio'), 
     path('financeiro/', views.financeiro_view, name='financeiro'),
+        # Adicione esta linha para a sua dashboard
+    path('dashboard/', views.dashboard, name='dashboard'),
 ]
 

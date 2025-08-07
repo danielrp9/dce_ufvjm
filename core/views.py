@@ -101,3 +101,6 @@ def financeiro_view(request):
         financeiro_list = Financeiro.objects.all()
 
     return render(request, 'financeiro.html', {'financeiro_list': financeiro_list})
+
+def dashboard(request):
+    return render(request, 'home.html')
